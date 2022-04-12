@@ -1,0 +1,37 @@
+.DocProposalCreator {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    align-items: center;
+    background-color: rgb(154, 178, 166);
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.gap{
+    width:20px;
+    background:none;
+    display:inline-block;
+}
+
+.button {
+    height: 40px;
+    align-self: center;
+    outline: none;
+    cursor: pointer;
+    background: white;
+    border-radius: 5px;
+}
+
+.input {
+    height: 30px;
+    align-self: center;
+    width: 360px;
+}
+
+.file-input {
+    align-self: center;
+}
