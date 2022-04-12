@@ -3,6 +3,7 @@ import 'react-tabs/style/react-tabs.css';
 
 import './App.css';
 import DocProposalCreator from './components/DocProposalCreator';
+import DocGetter from './components/DocGetter';
 
 function handleNewProposal() {
   console.log("dsdsafdsf")
@@ -15,7 +16,7 @@ function App() {
       
   <br/><br/><hr/><br/><br/>
 
-      <h2>Proposals</h2>
+      <h2>My Proposals</h2>
       <Tabs>
     <TabList>
       <Tab>Add</Tab>
@@ -23,18 +24,16 @@ function App() {
       {/* <Tab>Sign</Tab> */}
     </TabList>
 
-    <TabPanel>
+    <TabPanel >
       <DocProposalCreator handleSubmit={handleNewProposal}/>
     </TabPanel>
-    <TabPanel>
-      <h2>Any content 2</h2>
+    <TabPanel >
+      <DocGetter endpoint={'eqereq'}/>
     </TabPanel>
     {/* <TabPanel>
       <h2>Any content 3</h2>
     </TabPanel> */}
   </Tabs>
-
-  
     </div>
   );
 }

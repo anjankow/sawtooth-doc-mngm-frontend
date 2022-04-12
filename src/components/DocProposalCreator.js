@@ -1,12 +1,11 @@
 import React from 'react'
-import { useState } from 'react'
-import './DocProposalCreator.css'
+import '../App.css'
 
 function DocProposalCreator({ handleSubmit }) {
 
     return (
-        <div className="DocProposalCreator">
-            <form onSubmit={handleSubmit}>
+        <div className="Tab">
+            <form onSubmit={handleSubmit} >
             <div className="flex-row">
                 <p>Document ID: </p><div className="gap"></div><input id="docID" className="input"></input>
             </div>
