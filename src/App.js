@@ -10,13 +10,14 @@ const endpoint = 'http://localhost:8077'
 const userID = 'testuser'
 
 function handleNewProposal(formData) {
+  // userID should be get from the cookie instead (?)
   let userID = formData.get("userID");
   formData.delete("userID");
   axios.put(endpoint + "/api/proposals/" + userID, 
     formData,
     {
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "multipart/form-data",
       },
     }).then(response => {
     alert("proposal created");
