@@ -5,12 +5,12 @@ import DocViewer from './DocViewer';
 import '../App.css'
 
 
-function DocGetter({ endpoint }) {
+function DocGetter({ address }) {
 
     const [docs, setDocs] = useState([{ID: "id1", version: "v1", file: "xx"}, {ID: "id1", version: "v2", file: "dd"}, {ID: "id2", version: "v1", file: "sad"}]);
 
     axios
-        .get(endpoint + "/api/documents")
+        .get(address)
         .then(res => {
             setDocs({
             res

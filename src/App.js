@@ -1,12 +1,34 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import axios from "axios";
 
 import './App.css';
 import DocProposalCreator from './components/DocProposalCreator';
 import DocGetter from './components/DocGetter';
 
-function handleNewProposal() {
-  console.log("dsdsafdsf")
+const endpoint = 'http://localhost:8077'
+const userID = 'testuser'
+
+function handleNewProposal(formData) {
+  let userID = formData.get("userID");
+  formData.delete("userID");
+  axios.put(endpoint + "/api/proposals/" + userID, 
+    formData,
+    {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    }).then(response => {
+    alert("proposal created");
+    return response.data;
+ })
+ .catch(error => {
+   let message = error.response.data.error;
+  console.log(message);
+  alert(message);
+})
+
+
 }
 
 function App() {
@@ -28,7 +50,7 @@ function App() {
       <DocProposalCreator handleSubmit={handleNewProposal}/>
     </TabPanel>
     <TabPanel >
-      <DocGetter endpoint={'eqereq'}/>
+      <DocGetter endpoint={endpoint + "/api/proposals/" + userID}/>
     </TabPanel>
     {/* <TabPanel>
       <h2>Any content 3</h2>
