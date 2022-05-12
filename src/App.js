@@ -4,7 +4,7 @@ import axios from "axios";
 
 import './App.css';
 import ProposalCreator from './components/ProposalCreator';
-import DocGetter from './components/DocGetter';
+import ProposalGetter from './components/ProposalGetter';
 
 const endpoint = 'http://localhost:8077'
 
@@ -50,7 +50,7 @@ function App() {
           <ProposalCreator handleSubmit={handleNewProposal} />
         </TabPanel>
         <TabPanel >
-          <DocGetter endpoint={endpoint + "/api/proposals"} />
+          <ProposalGetter endpoint={endpoint + "/api/proposals"} />
         </TabPanel>
         {/* <TabPanel>
       <h2>Any content 3</h2>
