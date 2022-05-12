@@ -5,21 +5,31 @@ import DocViewer from './DocViewer';
 import '../App.css'
 
 
-function DocGetter({ address }) {
+function DocGetter({ endpoint }) {
 
-    const [docs, setDocs] = useState([{ID: "id1", version: "v1", file: "xx"}, {ID: "id1", version: "v2", file: "dd"}, {ID: "id2", version: "v1", file: "sad"}]);
+    const [docs, setDocs] = useState([{ name: "id1", category: "general", version: "v1", file: "xx" }, { name: "id2", category: "general", version: "v2", file: "dd" }, { name: "id3", category: "other", version: "v1", file: "sad" }]);
+    const url = endpoint
 
-    axios
-        .get(address)
-        .then(res => {
-            setDocs({
-            res
+    function getDocs() {
+        const userID = document.getElementById("userID").value;
+        const address = url + '?userID=' + userID;
+        console.log(address)
+        axios
+            .get(address)
+            .then(res => {
+                setDocs({
+                    res
+                });
+                console.log(res);
             });
-            console.log(res);
-        });
+    }
+
     return (
         <div className="Tab">
-            <DocViewer docs={docs}/>
+            {/* tmp  */}
+            <p>User: </p><div className="gap"></div><input type="text" id="userID" className="input" ></input>
+            <button onClick={getDocs}>Reload</button>
+            <DocViewer docs={docs} />
         </div >
     )
 }

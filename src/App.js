@@ -7,7 +7,6 @@ import ProposalCreator from './components/ProposalCreator';
 import DocGetter from './components/DocGetter';
 
 const endpoint = 'http://localhost:8077'
-const userID = 'testuser'
 
 function handleNewProposal(formData) {
   // userID should be read from the cookie instead (?)
@@ -39,6 +38,7 @@ function App() {
       <br /><br /><hr /><br /><br />
 
       <h2>My Proposals</h2>
+
       <Tabs>
         <TabList>
           <Tab>Add</Tab>
@@ -50,7 +50,7 @@ function App() {
           <ProposalCreator handleSubmit={handleNewProposal} />
         </TabPanel>
         <TabPanel >
-          <DocGetter endpoint={endpoint + "/api/proposals/" + userID} />
+          <DocGetter endpoint={endpoint + "/api/proposals"} />
         </TabPanel>
         {/* <TabPanel>
       <h2>Any content 3</h2>
