@@ -10,21 +10,17 @@ function ProposalViewer({ docs }) {
                     <tr>
                         <th>Doc Name</th>
                         <th>Category</th>
-                        <th>Version</th>
-                        <th>File</th>
+                        <th>Content</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {docs.map((doc) => <tr key={doc.name + ';' + doc.category}>
+                    {docs.map((doc) => <tr key={doc.proposalID}>
                         <td>{doc.name}</td>
                         <td>{doc.category}</td>
-                        <td>{doc.version}</td>
-                        <td>{doc.file}</td>
+                        <td>{doc.content}</td>
                     </tr>)}
                 </tbody>
             </table>
-
-
         </div >
     )
 }

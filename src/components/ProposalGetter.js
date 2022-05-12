@@ -7,7 +7,7 @@ import '../App.css'
 
 function ProposalGetter({ endpoint }) {
 
-    const [docs, setDocs] = useState([{ name: "id1", category: "general", version: "v1", file: "xx" }, { name: "id2", category: "general", version: "v2", file: "dd" }, { name: "id3", category: "other", version: "v1", file: "sad" }]);
+    const [docs, setDocs] = useState([{ name: "id1", category: "general", proposalID: "asdasdads", content: "xx" }, { name: "id1", category: "other", proposalID: "ppppp", content: "alabaster" }]);
     const url = endpoint
 
     function getDocs() {
