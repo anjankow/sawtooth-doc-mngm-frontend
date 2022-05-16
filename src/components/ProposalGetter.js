@@ -17,10 +17,8 @@ function ProposalGetter({ endpoint }) {
         axios
             .get(address)
             .then(res => {
-                setDocs({
-                    res
-                });
-                console.log(res);
+                console.log(res.data)
+                setDocs(res.data);
             });
     }
 
