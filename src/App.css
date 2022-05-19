@@ -11,13 +11,31 @@
   align-self: center;
 }
 
-.Tab2 {
+.ProposalCreator {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
   align-items: center;
   background-color: rgb(255, 244, 219);
   align-self: center;
+}
+
+.ToSignViewer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  align-items: center;
+  background-color: rgb(168, 204, 160);
+  align-self: center;
+}
+
+.SignedByUser {
+  background-color: rgb(219, 239, 143);
+}
+
+
+.NotSignedByUser {
+  background-color: inherit;
 }
 
 .flex-row {

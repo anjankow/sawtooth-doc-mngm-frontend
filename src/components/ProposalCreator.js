@@ -33,7 +33,7 @@ function preHandleSubmit(handleSubmit) {
 function ProposalCreator({ handleSubmit }) {
 
     return (
-        <div className="Tab2">
+        <div className="ProposalCreator">
             <h4>Create a new proposal</h4>
             <form onSubmit={() => { preHandleSubmit(handleSubmit) }}>
 
