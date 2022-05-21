@@ -6,7 +6,7 @@ import { useState } from 'react'
 import './App.css';
 import ProposalCreator from './components/ProposalCreator';
 import ProposalGetter from './components/ProposalGetter';
-import ToSignViewer from './components/ToSignViewer'
+import ToSignGetter from './components/ToSignGetter'
 
 const endpoint = 'http://localhost:8077'
 
@@ -67,7 +67,7 @@ function App() {
         </TabPanel>
 
         <TabPanel >
-          <ToSignViewer user={userID} docs={[{ name: "id1", category: "general", proposalID: "asdasdads", content: "xx", signers: "koteczek" }, { name: "id1", category: "other", proposalID: "ppppp", content: "alabaster", signers: "testuser,koteczek" }]} handleSign={handleSign} />
+          <ToSignGetter user={userID} endpoint={endpoint + "/api/proposals"} handleSign={handleSign} />
         </TabPanel>
       </Tabs>
     </div>
