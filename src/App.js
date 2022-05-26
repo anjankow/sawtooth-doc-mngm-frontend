@@ -36,6 +36,23 @@ function App() {
 
   function handleSign(proposalID) {
     console.log('signing ' + proposalID)
+    let body = `{ "signer":"` + userID + `"}`
+    console.log('body: ' + body)
+    axios.post(endpoint + "/api/proposals/" + proposalID,
+      body,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then(response => {
+        alert("proposal signed");
+        return response.data;
+      })
+      .catch(error => {
+        let message = error.response.data.error;
+        console.log(message);
+        alert(message);
+      })
   }
 
 
