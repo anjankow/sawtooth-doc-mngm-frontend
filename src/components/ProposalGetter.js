@@ -7,8 +7,9 @@ import '../App.css'
 
 function ProposalGetter({ user, endpoint }) {
 
-    const [docs, setDocs] = useState([{ name: "id1", category: "general", proposalID: "asdasdads", content: "xx" }, { name: "id1", category: "other", proposalID: "ppppp", content: "alabaster" }]);
     const url = endpoint
+    const [docs, setDocs] = useState([]);
+
 
     function getDocs() {
         const address = url + '?userID=' + user;

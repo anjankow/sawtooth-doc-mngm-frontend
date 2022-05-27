@@ -24,7 +24,7 @@ function App() {
           "Content-Type": "multipart/form-data",
         },
       }).then(response => {
-        alert("proposal created");
+        // alert("proposal created");
         return response.data;
       })
       .catch(error => {
@@ -45,7 +45,7 @@ function App() {
           "Content-Type": "application/json",
         },
       }).then(response => {
-        alert("proposal signed");
+        // alert("proposal signed");
         return response.data;
       })
       .catch(error => {

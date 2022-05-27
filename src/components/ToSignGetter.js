@@ -7,7 +7,7 @@ import '../App.css'
 
 function ToSignGetter({ user, endpoint, handleSign }) {
 
-    const [docs, setDocs] = useState([{ name: "id1", category: "general", proposalID: "asdasdads", content: "xx", signers: "koteczek" }, { name: "id1", category: "other", proposalID: "ppppp", content: "alabaster", signers: "testuser,koteczek" }]);
+    const [docs, setDocs] = useState([]);
     const url = endpoint
 
     function getDocs() {
