@@ -2,6 +2,19 @@
   text-align: center;
 }
 
+.DocTabs {
+  background-color: rgb(131, 175, 195);
+}
+
+.DocViewer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  align-items: center;
+  background-color: rgba(240, 248, 255, 0.689);
+  align-self: center;
+}
+
 .Tab {
   padding-top: 10px;
   padding-bottom: 10px;
