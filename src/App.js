@@ -16,7 +16,7 @@ function App() {
   const [userID, setUserID] = useState('testuser');
 
   const [docCategory, setDocCategory] = useState('general');
-  const [docName, setDocName] = useState('');
+  const [docVersionName, setDocVersionName] = useState('');
 
   function handleNewProposal(formData) {
     formData.append("userID", userID);
@@ -98,10 +98,10 @@ function App() {
           <Tab>Search</Tab>
         </TabList>
         <TabPanel  >
-          <DocGetter endpoint={endpoint + "/api/doc?author=" + userID} />
+          <DocGetter endpoint={endpoint + "/api/docs?author=" + userID} />
         </TabPanel>
         <TabPanel >
-          <DocGetter endpoint={endpoint + "/api/doc?signer=" + userID} />
+          <DocGetter endpoint={endpoint + "/api/docs?signer=" + userID} />
         </TabPanel>
         <TabPanel >
           <p>Category: </p><div className="gap"></div><input type="text" id="docCategory" className="input" defaultValue={docCategory} onChange={() => {
@@ -109,12 +109,12 @@ function App() {
             setDocCategory(userInput);
           }} ></input>
           <p></p>
-          <p>Document Name: </p><div className="gap"></div><input type="text" id="docName" className="input" onChange={() => {
-            const userInput = document.getElementById("docName").value;
-            setDocName(userInput);
+          <p>Document Name: </p><div className="gap"></div><input type="text" id="docVersionName" className="input" onChange={() => {
+            const userInput = document.getElementById("docVersionName").value;
+            setDocVersionName(userInput);
           }} ></input>
           <p></p>
-          <DocGetter endpoint={endpoint + "/api/doc/" + docCategory + "/" + docName} />
+          <DocGetter endpoint={endpoint + "/api/docs/" + docCategory + "/" + docVersionName} />
         </TabPanel>
       </Tabs>
 

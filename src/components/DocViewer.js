@@ -13,6 +13,7 @@ function DocViewer({ docs }) {
                         <th>Version</th>
                         <th>Author</th>
                         <th>Content</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,7 @@ function DocViewer({ docs }) {
                         <td>{doc.version}</td>
                         <td>{doc.author}</td>
                         <td>{doc.content}</td>
+                        <td>{doc.status}</td>
                     </tr>)}
                 </tbody>
             </table>

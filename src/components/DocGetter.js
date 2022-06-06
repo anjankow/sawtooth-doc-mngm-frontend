@@ -11,12 +11,12 @@ function DocGetter({ endpoint }) {
 
     function getDocs() {
         console.log('getting from ' + endpoint)
-        // axios
-        //     .get(url)
-        //     .then(res => {
-        //         console.log(res.data)
-        //         setDocs(res.data);
-        //     });
+        axios
+            .get(endpoint)
+            .then(res => {
+                console.log(res.data)
+                setDocs(res.data);
+            });
     }
 
     return (
