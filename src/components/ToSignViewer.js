@@ -10,6 +10,7 @@ function ToSignViewer({ docs, handleSign, user }) {
                         <th>Doc Name</th>
                         <th>Category</th>
                         <th>Content</th>
+                        <th>Proposed Status</th>
                         <th>Author</th>
                         <th>Signed by</th>
                         <th>Sign</th>
@@ -21,6 +22,7 @@ function ToSignViewer({ docs, handleSign, user }) {
                             <td>{doc.name}</td>
                             <td>{doc.category}</td>
                             <td>{doc.content}</td>
+                            <td>{doc.proposedStatus}</td>
                             <td>{doc.author}</td>
                             <td>{doc.signers}</td>
                             <td>

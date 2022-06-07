@@ -11,6 +11,7 @@ function ProposalViewer({ docs }) {
                         <th>Doc Name</th>
                         <th>Category</th>
                         <th>Content</th>
+                        <th>Proposed Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -18,6 +19,7 @@ function ProposalViewer({ docs }) {
                         <td>{doc.name}</td>
                         <td>{doc.category}</td>
                         <td>{doc.content}</td>
+                        <td>{doc.proposedStatus}</td>
                     </tr>)}
                 </tbody>
             </table>

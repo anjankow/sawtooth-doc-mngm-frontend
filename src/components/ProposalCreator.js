@@ -7,10 +7,14 @@ function preHandleSubmit(handleSubmit) {
     const file = document.getElementById("docFile").files[0];
     const docName = document.getElementById("docName").value;
     const category = document.getElementById("category").value;
+    const removeDoc = document.getElementById("removeDoc").checked;
 
     data.append("docFile", file)
     data.append("category", category)
     data.append("docName", docName)
+    if (removeDoc) {
+        data.append("docStatus", "removed")
+    }
 
     data.forEach((val, key) => console.log(key + " " + val));
 
@@ -18,9 +22,16 @@ function preHandleSubmit(handleSubmit) {
     if (docName === "") {
         errorMsg += "enter doc name; "
     }
-    if (file === null || file === undefined) {
+
+    let fileChosen = !(file === null || file === undefined)
+    if (removeDoc && fileChosen) {
+        errorMsg += "when removing a file, no file can be selected; "
+    }
+    if (!removeDoc && !fileChosen) {
         errorMsg += "select a file; "
     }
+
+
     if (errorMsg !== "") {
         alert(errorMsg)
         return
@@ -46,8 +57,15 @@ function ProposalCreator({ handleSubmit }) {
                 <div className="flex-row">
                     <p>Document file: </p><div className="gap"></div><input id="docFile" className="doc-input" type="file"></input>
                 </div>
+
+                <div className="flex-row">
+                    <p>Remove this document: </p>
+                    <input id="removeDoc" className="input" type="checkbox"></input>
+                </div>
+
+
                 <div className="gap"></div><input className="button" type="submit"></input>
-            </form>
+            </form >
         </div >
     )
 }
