@@ -2,8 +2,6 @@ import React from 'react'
 import '../App.css'
 
 function ToSignViewer({ docs, handleSign, user }) {
-    console.log(user)
-
     return (
         <div className="ToSignViewer">
             <table className="table">
