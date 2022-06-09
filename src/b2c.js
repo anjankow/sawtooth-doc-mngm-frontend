@@ -26,14 +26,14 @@ var isIE = function isIE() {
 
 var B2C_SCOPES = {
     API_ACCESS: {
-        scopes: ['https://b2cunicorn.onmicrosoft.com/api/user_impersonation']
+        scopes: ['https://csunivie3.onmicrosoft.com/09cd0e1a-9aaa-4186-a19a-dc75a262167c/client.requests']
     }
 };
 
 var msalAppConfig = {
     auth: {
-        clientId: '',
-        authority: 'https://b2cunicorn.b2clogin.com/b2cunicorn.onmicrosoft.com/B2C_1_signup',
+        clientId: '09cd0e1a-9aaa-4186-a19a-dc75a262167c',
+        authority: 'https://csunivie3.b2clogin.com/csunivie3.onmicrosoft.com/B2C_1_signup_singin',
         redirectUri: 'http://localhost:3000',
         validateAuthority: false,
         postLogoutRedirectUri: 'window.location.origin'
