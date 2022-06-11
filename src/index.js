@@ -9,6 +9,7 @@ import authentication from './b2c';
 authentication.initialize();
 
 authentication.run(() => {
+  console.log('auth OVEEEER')
   const root = ReactDOM.createRoot(
     document.getElementById('root')
   );

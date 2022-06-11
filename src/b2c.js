@@ -4,7 +4,7 @@ import React from 'react';
 import * as msal from 'msal'
 
 const state = {
-    stopLoopingRedirect: false,
+    stopLoopingRedirect: true,
     config: {
         scopes: [],
         cacheLocation: null,
@@ -26,14 +26,14 @@ var isIE = function isIE() {
 
 var B2C_SCOPES = {
     API_ACCESS: {
-        scopes: ['https://csunivie3.onmicrosoft.com/09cd0e1a-9aaa-4186-a19a-dc75a262167c/client.requests']
+        scopes: ['https://graph.microsoft.com/openid', 'https://graph.microsoft.com/offline_access']
     }
 };
 
 var msalAppConfig = {
     auth: {
-        clientId: '09cd0e1a-9aaa-4186-a19a-dc75a262167c',
-        authority: 'https://csunivie3.b2clogin.com/csunivie3.onmicrosoft.com/B2C_1_signup_singin',
+        clientId: 'bec9d628-b94f-474f-a681-0abf30268fde',
+        authority: 'https://csunivie3.b2clogin.com/csunivie3.onmicrosoft.com/B2C_1_singin',
         redirectUri: 'http://localhost:3000',
         validateAuthority: false,
         postLogoutRedirectUri: 'window.location.origin'
@@ -46,6 +46,8 @@ var msalAppConfig = {
 
 function acquireToken(successCallback) {
     const account = msalApp.getAccount()
+    console.log('account')
+    console.log(account)
 
     if (!account) {
         msalApp.loginRedirect(B2C_SCOPES.API_ACCESS)
@@ -56,6 +58,7 @@ function acquireToken(successCallback) {
             } else {
                 window.sessionStorage.setItem(AUTHORIZATION_KEY, 'Bearer ' + accessToken)
             }
+            console.log(accessToken)
 
             state.accessToken = accessToken
             if (state.launchApp) {
@@ -66,6 +69,8 @@ function acquireToken(successCallback) {
             }
         }, error => {
             if (error) {
+                console.log('error!')
+                console.log(error)
                 msalApp.acquireTokenRedirect(B2C_SCOPES.API_ACCESS)
             }
         })
@@ -79,9 +84,11 @@ var authentication = {
         msalApp = new msal.UserAgentApplication(msalAppConfig)
     },
     run: (launchApp) => {
+        console.log(state)
         state.launchApp = launchApp
         msalApp.handleRedirectCallback(error => {
             if (error) {
+                console.log('redirect callback error!')
                 const errorMessage = error.errorMessage ? error.errorMessage : "Unable to acquire access token."
                 console.log(errorMessage)
             }
@@ -89,6 +96,7 @@ var authentication = {
         acquireToken();
     },
     required: (WrappedComponent, renderLoading) => {
+        console.log('returning react component')
         return class extends React.Component {
             constructor(props) {
                 super(props)
@@ -99,6 +107,7 @@ var authentication = {
             }
 
             render() {
+                console.log('rendering...')
                 if (this.state.signedIn) {
                     return (<WrappedComponent {...this.props} />)
                 }
@@ -111,6 +120,7 @@ var authentication = {
         return msalApp.logout();
     },
     getAccessToken: function getAccessToken() {
+        console.log('getting access token')
         return state.accessToken;
     }
 };
