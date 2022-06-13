@@ -15,6 +15,7 @@ const state = {
 }
 
 const LOCAL_STORAGE = 'localStorage'
+const SESSION_STORAGE = 'sessionStorage'
 const AUTHORIZATION_KEY = 'Authorization'
 
 var isIE = function isIE() {
@@ -39,7 +40,7 @@ var msalAppConfig = {
         postLogoutRedirectUri: 'window.location.origin'
     },
     cache: {
-        cacheLocation: 'sessionStorage',
+        cacheLocation: LOCAL_STORAGE,
         storeAuthStateInCookie: isIE()
     }
 };
@@ -50,8 +51,10 @@ function acquireToken(successCallback) {
     console.log(account)
 
     if (!account) {
+        console.log('account is None, login redirect')
         msalApp.loginRedirect(B2C_SCOPES.API_ACCESS)
     } else {
+        console.log('account is set, acquire token')
         msalApp.acquireTokenSilent(B2C_SCOPES.API_ACCESS).then(accessToken => {
             if (msalAppConfig.cache.cacheLocation === LOCAL_STORAGE) {
                 window.localStorage.setItem(AUTHORIZATION_KEY, 'Bearer ' + accessToken)
