@@ -8,17 +8,19 @@ import ProposalCreator from './ProposalCreator';
 import ProposalGetter from './ProposalGetter';
 import ToSignGetter from './ToSignGetter'
 import DocGetter from './DocGetter';
-
-const endpoint = 'http://localhost:8077'
-
+import { backendAddr } from '../config';
 
 
 function ProtectedData({ responseData }) {
-
-    const [userID, setUserID] = useState('testuser');
+    const endpoint = backendAddr;
+    const userID = responseData.account.homeAccountId;
 
     const [docCategory, setDocCategory] = useState('general');
     const [docVersionName, setDocVersionName] = useState('');
+
+
+    console.log('protected data! response: ' + responseData)
+    console.log(responseData.account)
 
     function handleNewProposal(formData) {
         formData.append("userID", userID);
@@ -61,16 +63,11 @@ function ProtectedData({ responseData }) {
             })
     }
 
-    console.log('protected data! response: ' + responseData)
-
 
     return (
 
         <div className="App">
-            <p>User: </p><div className="gap"></div><input type="text" id="userID" className="input" defaultValue={userID} onChange={() => {
-                const userInput = document.getElementById("userID").value;
-                setUserID(userInput);
-            }} ></input>
+
             <p></p>
 
 

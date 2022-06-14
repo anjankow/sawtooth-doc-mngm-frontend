@@ -1,0 +1,1 @@
+export const backendAddr = 'http://localhost:8077';
