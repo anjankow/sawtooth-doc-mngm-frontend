@@ -11,15 +11,14 @@ import { Home } from "./pages/Home";
 import { Protected } from "./pages/Protected";
 import NavBar from './auth/NavBar';
 
+
 function App({ pca }) {
 
-
   return (
-    <Router>
+    <Router >
       <MsalProvider instance={pca}>
-        <NavBar>
-          <Pages />
-        </NavBar>
+        <NavBar />
+        <Pages />
       </MsalProvider>
     </Router>
   );
@@ -27,7 +26,7 @@ function App({ pca }) {
 
 function Pages() {
   return (
-    <Routes>
+    <Routes >
       <Route path="/protected" element={<Protected />} />
       <Route path="/" element={<Home />} />
     </Routes>

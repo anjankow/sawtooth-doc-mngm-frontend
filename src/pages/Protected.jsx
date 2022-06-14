@@ -17,6 +17,7 @@ const ProtectedContent = () => {
     const { instance, accounts, inProgress } = useMsal();
     const account = useAccount(accounts[0] || {});
     const [atsResponse, setAtsResponse] = useState(null);
+    console.log('loading protected content')
 
     useEffect(() => {
         if (!atsResponse && account && inProgress === InteractionStatus.None) {

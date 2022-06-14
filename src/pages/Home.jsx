@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import { Link as RouterLink } from "react-router-dom";
 
 export function Home() {
+    console.log('loading home')
     return (
         <>
             <AuthenticatedTemplate>
