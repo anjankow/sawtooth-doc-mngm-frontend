@@ -1,10 +1,11 @@
+// source: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-react-samples/b2c-sample
 import { useState } from "react";
 import { useMsal } from "@azure/msal-react";
 import Button from "@mui/material/Button";
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
-import { loginRequest } from "../authConfig.js";
+import { loginRequest } from "./authConfig.js";
 
 export const SignInButton = () => {
     const { instance } = useMsal();

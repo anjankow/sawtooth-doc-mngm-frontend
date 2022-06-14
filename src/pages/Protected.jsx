@@ -1,9 +1,10 @@
+// source: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-react-samples/b2c-sample
 import { useEffect, useState } from "react";
 
 // Msal imports
 import { MsalAuthenticationTemplate, useMsal, useAccount } from "@azure/msal-react";
 import { InteractionType, InteractionStatus, InteractionRequiredAuthError } from "@azure/msal-browser";
-import { loginRequest } from "../authConfig";
+import { loginRequest } from "../auth/authConfig";
 
 // Sample app imports
 import Typography from '@mui/material/Typography';

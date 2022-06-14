@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 // MSAL imports
 import { PublicClientApplication } from "@azure/msal-browser";
-import { msalConfig } from "./authConfig";
+import { msalConfig } from "./auth/authConfig";
 
 const msalInstance = new PublicClientApplication(msalConfig);
 

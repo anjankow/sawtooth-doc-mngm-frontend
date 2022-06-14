@@ -1,3 +1,4 @@
+// source: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-react-samples/b2c-sample
 import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -12,7 +13,7 @@ export function Home() {
 
             <UnauthenticatedTemplate>
                 <Typography variant="h6">
-                    <center>Please sign-in to acquire access tokens.</center>
+                    <center>Please sign-in to access the system.</center>
                 </Typography>
             </UnauthenticatedTemplate>
         </>

@@ -1,3 +1,4 @@
+// source: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-react-samples/b2c-sample
 import { useState } from "react";
 import { useMsal } from "@azure/msal-react";
 import IconButton from '@mui/material/IconButton';

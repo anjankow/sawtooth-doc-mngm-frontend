@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { Home } from "./pages/Home";
 import { Protected } from "./pages/Protected";
-import NavBar from './components/NavBar';
+import NavBar from './auth/NavBar';
 
 function App({ pca }) {
 
