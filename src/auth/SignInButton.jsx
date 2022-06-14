@@ -28,12 +28,12 @@ export const SignInButton = () => {
     return (
         <div>
             <Button
-                onClick={(event) => setAnchorEl(event.currentTarget)}
+                onClick={() => handleLogin("redirect")}
                 color="inherit"
             >
                 Login
             </Button>
-            <Menu
+            {/* <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
@@ -50,7 +50,7 @@ export const SignInButton = () => {
             >
                 <MenuItem onClick={() => handleLogin("popup")} key="loginPopup">Sign in using Popup</MenuItem>
                 <MenuItem onClick={() => handleLogin("redirect")} key="loginRedirect">Sign in using Redirect</MenuItem>
-            </Menu>
+            </Menu> */}
         </div>
     )
 };

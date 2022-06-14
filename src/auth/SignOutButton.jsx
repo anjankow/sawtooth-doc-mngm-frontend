@@ -1,4 +1,3 @@
-// source: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-react-samples/b2c-sample
 import { useState } from "react";
 import { useMsal } from "@azure/msal-react";
 import IconButton from '@mui/material/IconButton';
@@ -45,8 +44,8 @@ export const SignOutButton = () => {
                 open={open}
                 onClose={() => setAnchorEl(null)}
             >
-                <MenuItem onClick={() => handleLogout("popup")} key="logoutPopup">Logout with Popup</MenuItem>
-                <MenuItem onClick={() => handleLogout("redirect")} key="logoutRedirect">Logout with Redirect</MenuItem>
+                {/* <MenuItem onClick={() => handleLogout("popup")} key="logoutPopup">Logout with Popup</MenuItem> */}
+                <MenuItem onClick={() => handleLogout("redirect")} key="logoutRedirect">Logout</MenuItem>
             </Menu>
         </div>
     )
