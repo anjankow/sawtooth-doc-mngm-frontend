@@ -1,15 +1,13 @@
 // source: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-react-samples/b2c-sample
 import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Link as RouterLink } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 
 export function Home() {
-    console.log('loading home')
     return (
         <>
             <AuthenticatedTemplate>
-                <Button component={RouterLink} to="/protected" variant="contained" color="primary">Request Access Token</Button>
+                <Navigate to="/protected" />
             </AuthenticatedTemplate>
 
             <UnauthenticatedTemplate>
