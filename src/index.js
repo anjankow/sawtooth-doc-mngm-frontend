@@ -3,24 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import authentication from './b2c';
 
 
-authentication.initialize();
+// MSAL imports
+import { PublicClientApplication } from "@azure/msal-browser";
+import { msalConfig } from "./authConfig";
 
-authentication.run(() => {
-  console.log('auth OVEEEER')
-  const root = ReactDOM.createRoot(
-    document.getElementById('root')
-  );
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
-});
+const msalInstance = new PublicClientApplication(msalConfig);
 
 
+const root = ReactDOM.createRoot(
+  document.getElementById('root')
+);
+root.render(
+  <React.StrictMode>
+    <App pca={msalInstance} />
+  </React.StrictMode>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
