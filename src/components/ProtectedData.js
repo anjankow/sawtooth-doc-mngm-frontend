@@ -13,7 +13,15 @@ import { backendAddr } from '../config';
 
 function ProtectedData({ responseData }) {
     const endpoint = backendAddr;
-    const userID = responseData.account.homeAccountId;
+    const accessToken = responseData.accessToken;
+    const userID = responseData.account.localAccountId;
+    console.log('accessToken')
+    console.log(accessToken)
+    console.log('userID')
+    console.log(userID)
+
+    axios.defaults.headers.common['Authorization'] = 'Bearer ' + accessToken;
+
 
     const [docCategory, setDocCategory] = useState('general');
     const [docVersionName, setDocVersionName] = useState('');
