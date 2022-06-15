@@ -35,6 +35,8 @@ const ProtectedContent = () => {
         }
     }, [account, inProgress, instance, atsResponse]);
 
+    console.log(atsResponse)
+
     return (
         <Paper>
             {atsResponse ? <ProtectedData responseData={atsResponse} /> : null}

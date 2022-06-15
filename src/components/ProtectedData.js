@@ -19,9 +19,6 @@ function ProtectedData({ responseData }) {
     const [docVersionName, setDocVersionName] = useState('');
 
 
-    console.log('protected data! response: ' + responseData)
-    console.log(responseData.account)
-
     function handleNewProposal(formData) {
         formData.append("userID", userID);
         let docName = formData.get("docName");
