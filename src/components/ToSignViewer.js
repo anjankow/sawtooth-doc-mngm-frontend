@@ -1,7 +1,7 @@
 import React from 'react'
 import '../App.css'
 
-function ToSignViewer({ docs, handleSign, user }) {
+function ToSignViewer({ docs, handleSignProposal, user }) {
     return (
         <div className="ToSignViewer">
             <table className="table">
@@ -26,7 +26,7 @@ function ToSignViewer({ docs, handleSign, user }) {
                             <td>{doc.author}</td>
                             <td>{doc.signers}</td>
                             <td>
-                                <button onClick={() => { handleSign(doc.proposalID) }}>X</button>
+                                <button onClick={() => { handleSignProposal(doc.proposalID) }}>X</button>
                             </td>
                         </tr>)}
                 </tbody>

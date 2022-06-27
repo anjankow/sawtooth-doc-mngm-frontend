@@ -5,7 +5,7 @@ import ToSignViewer from './ToSignViewer';
 import '../App.css'
 
 
-function ToSignGetter({ user, endpoint, handleSign }) {
+function ToSignGetter({ user, endpoint, handleSignProposal }) {
 
     const [docs, setDocs] = useState([]);
     const url = endpoint
@@ -25,7 +25,7 @@ function ToSignGetter({ user, endpoint, handleSign }) {
         <div className="Tab">
             <button onClick={getDocs}>Reload</button>
             <p></p>
-            <ToSignViewer user={user} docs={docs} handleSign={handleSign} />
+            <ToSignViewer user={user} docs={docs} handleSignProposal={handleSignProposal} />
         </div >
     )
 }
