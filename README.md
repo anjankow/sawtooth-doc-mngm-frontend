@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Organization Documents Management
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Each organization needs a way to store and update its documents.
+And in the organization world, new documents usually have to
+be reviewed and signed by its members, before they get accepted.
 
-## Available Scripts
+This application serves as a frontend of a system to manage documents.
+It focuses on two main concepts: proposals and documents. 
 
-In the project directory, you can run:
+A document is an accepted version of a proposal. A document can come in several versions,
+each might be created by a different person. It is uniquely identified by its name and category.
+A user can't create the document directly, only through a proposal and the signing process.
 
-### `npm start`
+A proposal however can be created by anyone. It needs to include the document name it refers to.
+If the document already exists, when the proposal is accepted,
+it is added under the same name and category with the next version number.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Authentication
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The application uses Azure AD B2C to authenticate its users and generate an access token
+used for each request to the backend server.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Possible user actions
 
-### `npm run build`
+ - creating a new document proposal (proposed state can be `accepted` or `removed`)
+ - signing a proposal
+ - getting created and signed proposals
+ - getting the accepted documents (by name, signed or created by a user)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Project layout
+```
+.  
+├── public              # Static parts of the website  
+├── src                 # Source files  
+    ├── auth            # Auth relatedcomponents and configuration  
+    ├── components      # App componenets implementation  
+    └── pages           # Home and protected view  
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# How to start?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## locally
 
-### `npm run eject`
+Prerequisites:
+ - NodeJS
+ - npm
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The application will automatically open in a web browser.
+The server listens on http://localhost:8080.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## dockerized
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Prerequisites:
+ - Docker
 
-## Learn More
+When using the dockerized application, the production build is used.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+First build the image with the tag `frontend`.
+```
+docker build -t frontend .
+```
 
-### Code Splitting
+Next, run the image mappping the port 8080 to the host.
+```
+docker run -p 8080:8080 frontend
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Now go to http://localhost:8080 to verify the application run.
