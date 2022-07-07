@@ -11,10 +11,9 @@ COPY src ./src
 RUN npm run build
 
 FROM node:17.9 as production
-WORKDIR /home/app
 
 RUN npm install --location=global serve
-COPY --from=build /home/app/build ./build
+COPY --from=build /home/app/build /home/app/build
 
 EXPOSE 8080
 CMD ["serve",  "-s", "build", "-l", "8080"]

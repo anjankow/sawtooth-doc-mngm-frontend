@@ -31,11 +31,11 @@ used for each request to the backend server.
 # Project layout
 ```
 .  
-├── public              # Static parts of the website  
-├── src                 # Source files  
-    ├── auth            # Auth relatedcomponents and configuration  
-    ├── components      # App componenets implementation  
-    └── pages           # Home and protected view  
+├── public              # Static parts of the website
+└── src                 # Source files
+    ├── auth            # Auth relatedcomponents and configuration
+    ├── components      # App componenets implementation
+    └── pages           # Home and protected view
 ```
 
 # How to start?
