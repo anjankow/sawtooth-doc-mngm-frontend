@@ -7,14 +7,6 @@ RUN npm install --legacy-peer-deps
 
 COPY public ./public
 COPY src ./src
+COPY cert ./cert
 
-RUN npm run build
-
-FROM node:17.9 as production
-WORKDIR /home/app
-
-RUN npm install --location=global serve
-COPY --from=build /home/app/build ./build
-
-EXPOSE 8080
-CMD ["serve",  "-s", "build", "-l", "8080"]
+ENTRYPOINT ["npm", "start"]
