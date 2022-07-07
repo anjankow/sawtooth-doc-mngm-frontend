@@ -9,4 +9,12 @@ COPY public ./public
 COPY src ./src
 COPY cert ./cert
 
-ENTRYPOINT ["npm", "start"]
+RUN npm run build
+
+FROM node:17.9 as production
+
+RUN npm install --location=global serve
+COPY --from=build /home/app/build /home/app/build
+
+EXPOSE 8080
+CMD ["serve",  "-s", "build", "-l", "8080"]
