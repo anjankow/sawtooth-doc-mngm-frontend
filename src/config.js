@@ -1,1 +1,1 @@
-export const backendAddr = 'https://p1-22s-jankowska.cs.univie.ac.at';
+export const backendAddr = 'https://p1-22s-jankowska.cs.univie.ac.at/backend';
