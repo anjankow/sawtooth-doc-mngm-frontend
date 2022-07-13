@@ -16,4 +16,4 @@ RUN npm install --location=global serve
 COPY --from=build /home/app/build /home/app/build
 
 EXPOSE 8080
-CMD ["serve",  "-s", "build", "-l", "8080"]
+CMD ["serve",  "-s", "/home/app/build", "-l", "8080"]
