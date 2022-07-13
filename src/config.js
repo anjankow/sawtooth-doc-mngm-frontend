@@ -1,1 +1,1 @@
-export const backendAddr = 'http://localhost:8077';
+export const backendAddr = 'https://p1-22s-jankowska.cs.univie.ac.at';
