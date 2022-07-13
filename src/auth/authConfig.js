@@ -4,9 +4,9 @@ export const msalConfig = {
         clientId: 'bec9d628-b94f-474f-a681-0abf30268fde',
         authority: 'https://csunivie3.b2clogin.com/csunivie3.onmicrosoft.com/B2C_1_singin',
         knownAuthorities: ['https://csunivie3.b2clogin.com', 'https://csunivie3.onmicrosoft.com/23442958-08df-4782-85fa-d3f834120fbb'],
-        redirectUri: 'https://p1-22s-jankowska.cs.univie.ac.at:8080',
+        redirectUri: 'https://p1-22s-jankowska.cs.univie.ac.at',
         validateAuthority: false,
-        postLogoutRedirectUri: 'https://p1-22s-jankowska.cs.univie.ac.at:8080'
+        postLogoutRedirectUri: 'https://p1-22s-jankowska.cs.univie.ac.at'
     }
 };
 
