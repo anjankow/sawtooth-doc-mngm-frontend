@@ -30,14 +30,17 @@ function ProtectedData({ responseData }) {
     function handleNewProposal(formData) {
         formData.append("userID", userID);
         let docName = formData.get("docName");
-        axios.put(endpoint + "/api/proposals/" + docName,
+        let address = endpoint + "/api/proposals/" + docName;
+        console.log('sending to ' + address)
+        axios.put(address,
             formData,
             {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
             }).then(response => {
-                // alert("proposal created");
+                alert("proposal created");
+                console.log(response);
                 return response.data;
             })
             .catch(error => {

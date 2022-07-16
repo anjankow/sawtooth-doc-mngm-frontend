@@ -46,7 +46,7 @@ function ProposalCreator({ handleSubmit }) {
     return (
         <div className="ProposalCreator">
             <h4>Create a new proposal</h4>
-            <form onSubmit={() => { preHandleSubmit(handleSubmit) }}>
+            <form onSubmit={(e) => { e.preventDefault(); preHandleSubmit(handleSubmit) }}>
 
                 <div className="flex-row">
                     <p>Document ID: </p><div className="gap"></div><input type="text" id="docName" className="input"></input>
